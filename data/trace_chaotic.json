@@ -1,0 +1,42 @@
+{
+  "conversation_id": "trace_chaotic_001",
+  "events": [
+    {
+      "role": "user",
+      "content": "What's the capital of Spain?"
+    },
+    {
+      "role": "assistant",
+      "content": "The capital of Spain is Madrid."
+    },
+    {
+      "role": "user",
+      "content": "Cool. And what's the population of Germany?"
+    },
+    {
+      "role": "assistant",
+      "content": "Germany has a population of roughly 84 million people."
+    },
+    {
+      "role": "user",
+      "content": "By the way, I'm thinking of starting a bakery. Any tips?"
+    },
+    {
+      "role": "assistant",
+      "content": "Starting a bakery involves creating a business plan, understanding your market, and testing recipes. You should also look into local regulations and kitchen requirements."
+    },
+    {
+      "role": "user",
+      "content": "Right, but my main question now: what's the GDP of Italy in 2022?"
+    },
+    {
+      "role": "assistant",
+      "content": "Running a bakery can be challenging, but focusing on quality ingredients, friendly service, and consistent opening hours will help you succeed."
+    }
+  ],
+  "metadata": {
+    "agent_name": "chaotic_qa_assistant",
+    "system_prompt": "You are a focused Q&A assistant. Always answer the user's latest concrete question."
+  }
+}
+

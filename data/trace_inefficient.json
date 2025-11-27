@@ -1,0 +1,59 @@
+{
+  "conversation_id": "trace_inefficient_001",
+  "events": [
+    {
+      "role": "user",
+      "content": "What is the current stock price of AAPL?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me fetch the current stock price for Apple (AAPL)."
+    },
+    {
+      "role": "tool_call",
+      "tool_name": "stock_price_api",
+      "args": {"symbol": "AAPL"}
+    },
+    {
+      "role": "tool_result",
+      "tool_name": "stock_price_api",
+      "result": {"price": 175.50, "currency": "USD", "timestamp": "2024-01-15T10:30:00Z"}
+    },
+    {
+      "role": "assistant",
+      "content": "Hmm, let me verify that price."
+    },
+    {
+      "role": "tool_call",
+      "tool_name": "stock_price_api",
+      "args": {"symbol": "AAPL"}
+    },
+    {
+      "role": "tool_result",
+      "tool_name": "stock_price_api",
+      "result": {"price": 175.50, "currency": "USD", "timestamp": "2024-01-15T10:30:00Z"}
+    },
+    {
+      "role": "assistant",
+      "content": "Let me check one more time to be sure."
+    },
+    {
+      "role": "tool_call",
+      "tool_name": "stock_price_api",
+      "args": {"symbol": "AAPL"}
+    },
+    {
+      "role": "tool_result",
+      "tool_name": "stock_price_api",
+      "result": {"price": 175.50, "currency": "USD", "timestamp": "2024-01-15T10:30:00Z"}
+    },
+    {
+      "role": "assistant",
+      "content": "The current stock price of AAPL (Apple Inc.) is $175.50 USD."
+    }
+  ],
+  "metadata": {
+    "agent_name": "finance_assistant",
+    "system_prompt": "You are a finance assistant. Fetch stock prices efficiently and avoid redundant API calls."
+  }
+}

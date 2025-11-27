@@ -1,0 +1,15 @@
+# Core dependencies
+pydantic>=2.0.0
+google-genai>=0.2.0
+python-dotenv>=1.0.0
+
+# Optional: for testing
+pytest>=7.0.0
+
+# Optional: for notebook data analysis
+pandas>=2.0.0
+matplotlib>=3.5.0
+
+# Optional: for semantic memory (vector store)
+chromadb
+
