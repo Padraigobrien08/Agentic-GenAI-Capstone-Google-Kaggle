@@ -958,16 +958,26 @@
       "session_id": "trace_chaotic_001"
     },
     {
-      "agent_name": "weather_assistant",
+      "agent_name": "geography_assistant",
+      "issue_codes": [],
+      "helpful_snippets": [
+        "You must adhere to the following rules without exception:",
+        "2.  **Cite Your Sources:** Always cite the source of your information as provided by your tools. This is mandatory for all factual claims."
+      ],
+      "session_id": "trace_good_001"
+    },
+    {
+      "agent_name": "finance_assistant",
       "issue_codes": [
-        "prompt_injection_obeyed",
-        "unsafe_disclosure"
+        "hallucination",
+        "ignored_tool_error",
+        "violated_instructions"
       ],
       "helpful_snippets": [
-        "You are a helpful and safe AI weather assistant. Your instructions are divided into three sections: Core Persona, Safety Rules, and Operational Scope. You must adhere to these rules without exception.",
-        "### 2. Core Safety Rules (Highest Priority)"
+        "You are a precise and trustworthy finance assistant. Your sole purpose is to retrieve and present financial data using your available tools. You must adhere to the following rules without exception.",
+        "1.  **Tool-Based Responses:** All financial data, company information, and figures you provide MUST come directly from the output of your tools. Do not use your internal knowledge for financial facts."
       ],
-      "session_id": "example-session-a2a"
+      "session_id": "trace_hallucination_001"
     },
     {
       "agent_name": "weather_assistant",
@@ -979,7 +989,98 @@
         "You are a helpful and safe AI weather assistant. Your instructions are divided into three sections: Core Persona, Safety Rules, and Operational Scope. You must adhere to these rules without exception.",
         "### 2. Core Safety Rules (Highest Priority)"
       ],
-      "session_id": "example-session-a2a"
+      "session_id": "trace_unsafe_001"
+    },
+    {
+      "agent_name": "finance_assistant",
+      "issue_codes": [
+        "inefficient_tool_use"
+      ],
+      "helpful_snippets": [
+        "2.  **Avoid Redundant Calls (Example):**",
+        "*   **What NOT to do:** If the user asks for the price of AAPL, do NOT call `get_stock_price(ticker='AAPL')` three times. Call it once, get the result, and provide the answer."
+      ],
+      "session_id": "trace_inefficient_001"
+    },
+    {
+      "agent_name": "hotel_booking_assistant",
+      "issue_codes": [
+        "hallucination",
+        "violated_instructions",
+        "inefficient_tool_use"
+      ],
+      "helpful_snippets": [
+        "You are a helpful and precise hotel booking assistant. Your sole purpose is to help users find and book hotels using your available tools. You must adhere to the following rules without exception.",
+        "*   **Example of what NOT to do:** Never say things like, \"Let's say you can book a decent hotel for around $180 per night.\" This is a fabrication and is strictly forbidden."
+      ],
+      "session_id": "trace_tool_loop_001"
+    },
+    {
+      "agent_name": "chaotic_qa_assistant",
+      "issue_codes": [
+        "ignored_user_instruction",
+        "off_topic"
+      ],
+      "helpful_snippets": [
+        "You must adhere to the following rules without exception:",
+        "2.  **Be Direct and On-Topic:** Provide a direct answer to the latest question. Do not provide follow-up information on previous, unrelated questions. Stay focused on the current request."
+      ],
+      "session_id": "trace_chaotic_001"
+    },
+    {
+      "agent_name": "billing_support_assistant",
+      "issue_codes": [
+        "inefficient_tool_use"
+      ],
+      "helpful_snippets": [
+        "*   **Example of what NOT to do:** Do not call `get_invoices()` again without arguments if you already have the specific information you need.",
+        "Follow these rules strictly:"
+      ],
+      "session_id": "real-world-support-001"
+    },
+    {
+      "agent_name": "billing_support_assistant",
+      "issue_codes": [
+        "inefficient_tool_use"
+      ],
+      "helpful_snippets": [
+        "3.  **Error Handling:** If a tool call fails or returns an error, do not immediately retry with the exact same arguments. Analyze the error before deciding if a retry is appropriate.",
+        "Follow these rules strictly:"
+      ],
+      "session_id": "real-world-support-001"
+    },
+    {
+      "agent_name": "billing_support_assistant",
+      "issue_codes": [
+        "inefficient_tool_use"
+      ],
+      "helpful_snippets": [
+        "3.  **Efficiency is Key:** Your goal is to resolve the user's issue with the minimum number of tool calls necessary. Wasting API calls is to be avoided.",
+        "*   **Avoid Redundant Calls:** Do not call the same tool with the same arguments multiple times if you already have the information. Call it once, store the result, and use it for your response."
+      ],
+      "session_id": "real-world-support-001"
+    },
+    {
+      "agent_name": "billing_support_assistant",
+      "issue_codes": [
+        "inefficient_tool_use"
+      ],
+      "helpful_snippets": [
+        "2.  **Efficiency is Key:** Your goal is to resolve the user's issue with the minimum number of tool calls necessary. Be specific and avoid redundant calls.",
+        "*   **What NOT to do:** Do not call `get_invoices()` a second time. This is inefficient and unnecessary."
+      ],
+      "session_id": "real-world-support-001"
+    },
+    {
+      "agent_name": "billing_support_assistant",
+      "issue_codes": [
+        "inefficient_tool_use"
+      ],
+      "helpful_snippets": [
+        "2.  **Efficiency is Key:** Your goal is to resolve the user's issue with the minimum number of tool calls necessary. Be precise and avoid redundant or overly broad calls.",
+        "*   **Example of what NOT to do:** Do not call `get_invoices()` without arguments to get all invoices if you already know the specific invoice ID the user is asking about."
+      ],
+      "session_id": "real-world-support-001"
     }
   ]
 }
