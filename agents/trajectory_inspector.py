@@ -271,27 +271,18 @@ class TrajectoryInspector:
 
     def _generate_summary(
         self, events: List[TraceEvent], issues: List[TrajectoryIssue]
-    ) -> str:
+        ) -> str:
         """Generate a summary of the trajectory analysis."""
         total_events = len(events)
         num_issues = len(issues)
 
-        if num_issues == 0:
-            return (
-                f"Trajectory analysis completed. Found no issues in "
-                f"{total_events} events."
-            )
+        summary_parts = [f"Trajectory analysis completed on {total_events} events."]
 
-        issue_codes = [issue.code for issue in issues]
-        unique_codes = list(set(issue_codes))
-
-        summary_parts = [
-            f"Trajectory analysis completed. Found {num_issues} issue(s) "
-            f"across {total_events} events."
-        ]
-
-        if unique_codes:
-            summary_parts.append(f"Issue types: {', '.join(unique_codes)}")
+        if num_issues > 0:
+            summary_parts.append(f"{num_issues} issue(s) detected.")
+        else:
+            summary_parts.append("No structural issues detected.")
 
         return " ".join(summary_parts)
+
 
